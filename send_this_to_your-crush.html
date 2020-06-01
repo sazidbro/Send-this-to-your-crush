@@ -67,16 +67,21 @@
 <div class="container-fluid text-center head-plugin" style="background-color:#d86a77; ">
 <div class="alert alert-danger">
   <strong>Danger!</strong> You will fall in love with me.
-</div>   
+</div>  
+
 <div class="embed-responsive embed-responsive-16by9">
 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/aBFE7yn3lso" allow="encrypted-media;" allowfullscreen></iframe>
+</div>
+<div id="p-4">
+<div  id="myBar"  class="progress-bar progress-bar-striped progress-bar-animated m-3 text-center bg-success">This is My love for You</div> 
+<button onclick="move()" class="btn btn-success">Click Here to Find Your Love for ME</button> 
 </div>
 <div class="p-4">
 <button type="button" class="btn  btn-danger p-4"><a href="https://m.me/100011457304911" class="text-success">Accept my proposal</a></button>
 </div>
 	</div>
 	</div>
-   <script>
+<script>
      $( "#header-plugin" ).load( "https://vivinantony.github.io/header-plugin/", function() {
 	$("a.back-to-link").attr("href", "http://blog.thelittletechie.com/2015/03/love-heart-animation-using-css3.html#tlt")  
 });
@@ -100,7 +105,30 @@ var love = setInterval(function() {
         }
     });
 }, 500);
-     </script>
+var i = 0;
+function move() {
+  if (i == 0) {
+    i = 1;
+    var elem = document.getElementById("myBar");
+    var width = 10;
+    var id = setInterval(frame, 40);
+    function frame() {
+      if (width >= 120) {
+        clearInterval(id);
+        i = 0;
+      } else {
+        width++;
+        if(width>100){
+             elem.innerHTML = "It's Infinite";
+        }else{
+        elem.style.width = width + "%";
+        elem.innerHTML = width  + "%";
+      }
+      }
+    }
+  }
+}
+ elem.innerHTML = width  + "%";     </script>
   </body>
 
 </html>

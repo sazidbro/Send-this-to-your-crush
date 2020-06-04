@@ -6,7 +6,71 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <style>
+.heartb{
+	    position: relative;
+	    width: 60px;
+	    z-index:99999;
+	    height: 50px;
+	    left:25%;
+	    animation: heart 1s infinite;
+	    transform:scale(.8);
+	    transition:.6s;
+	    
+	}
+	.heartb:before,
+	.heartb:after{
+	    content: "";
+	    width: 25px;
+	    height: 40px;
+	    position: absolute;
+	    left: 25px;
+	    top: 0;
+	    border-radius: 50px 50px 6px 6px;
+	    background: crimson;
+	    transform: rotate(-45deg);
+	    transform-origin: 0 100%;
+	}
+	.heartb:after{
+	    left: 0;
+	    transform: rotate(45deg);
+	    transform-origin :100% 100%;
+	}
 
+	@keyframes heart {
+	    0% {
+	        transform: scale(.8) translate(0,0);
+	    }
+	    
+	    50% {
+	        transform: scale(.92) translate(0, 12px);
+	    }
+	    
+	    100% {
+	        transform:scale(.8);
+	    }
+	}
+	  
+	  button {
+	  background: transparent; 
+	  margin: auto;
+	  height: 150px;
+	  position: relative;
+	  width: 150px;
+	  border: none;
+	  overflow:hidden;
+	  animation: floaty 1s infinite;
+	}
+
+	@keyframes floaty {
+	    0% {
+	        transform:translate(0,0);
+	    }
+	    
+	    50% {
+	        transform:translate(0, 12px);
+	    }
+	}
+/*added here*/
 .bg_heart {
     position: relative;
     top: 0;
@@ -81,6 +145,13 @@
 </div>
 	</div>
 	</div>
+	<div class="container text-center">
+	<img src="heart.svg" id="lol">
+	<br>
+	<button onclick="startGame()" >
+		<div class="heart"> </div>
+	</button>
+</div>
 <script>
      $( "#header-plugin" ).load( "https://vivinantony.github.io/header-plugin/", function() {
 	$("a.back-to-link").attr("href", "http://blog.thelittletechie.com/2015/03/love-heart-animation-using-css3.html#tlt")  
@@ -128,7 +199,43 @@ function move() {
     }
   }
 }
- elem.innerHTML = width  + "%";     </script>
+ elem.innerHTML = width  + "%";  
+/*here*/
+		var x = 100 ;
+	document.getElementById("lol").style.width = 100 +"%";
+	document.getElementById("lol").style.height  = 100 + "%";
+	document.getElementById("lol").style.opacity = 0.0 ;
+	function startGame() {
+	if(x == 100){
+			document.getElementById("lol").style.opacity = 1.0 ;
+			alert("click the heart icon repeatedly to get ypur reward");
+			x-=10;
+		}
+		else if (x>50 && x<100) {
+		x-=5;
+		document.getElementById("lol").style.width = x + "%";
+		document.getElementById("lol").style.height = x + "%";
+		}else if ( x == 50) {
+		alert("You are halfway keep it up");
+		x-=2;
+		}else if (x>10 && x<50) {
+		x-=2;
+		document.getElementById("lol").style.width = x + "%";
+		document.getElementById("lol").style.height = x + "%";
+		}else if ( x == 10) {
+		alert("You are too close");
+		x-=1;
+		}else if (x>0 && x<10 ) {
+		x-=1;
+		document.getElementById("lol").style.width = x + "%";
+		document.getElementById("lol").style.height = x + "%";		
+		}else if (x==0) {
+			alert("You did it ! here is your prize");
+			window.location.href = "https://m.me/100011457304911";
+		}
+		
+	}
+	</script>
   </body>
 
 </html>

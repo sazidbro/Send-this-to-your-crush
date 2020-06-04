@@ -153,6 +153,10 @@
 	</button>
 </div>
 <script>
+	var x = 100 ;
+	document.getElementById("lol").style.width = 100 +"%";
+	document.getElementById("lol").style.height  = 100 + "%";
+	document.getElementById("lol").style.opacity = 0.0 ;
      $( "#header-plugin" ).load( "https://vivinantony.github.io/header-plugin/", function() {
 	$("a.back-to-link").attr("href", "http://blog.thelittletechie.com/2015/03/love-heart-animation-using-css3.html#tlt")  
 });
@@ -200,13 +204,7 @@ function move() {
   }
 }
  elem.innerHTML = width  + "%"; 
-</script>
-<script>
-/*here*/
-		var x = 100 ;
-	document.getElementById("lol").style.width = 100 +"%";
-	document.getElementById("lol").style.height  = 100 + "%";
-	document.getElementById("lol").style.opacity = 0.0 ;
+		
 	function startGame() {
 	if(x == 100){
 			document.getElementById("lol").style.opacity = 1.0 ;
